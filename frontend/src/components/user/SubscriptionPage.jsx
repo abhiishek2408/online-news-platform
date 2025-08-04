@@ -34,7 +34,7 @@ const SubscriptionPage = () => {
   };
 
   return (
-    <div className="p-4 shadow-md rounded bg-white dark:bg-gray-800 w-full max-w-md mx-auto">
+    <div className="p-4 shadow-md rounded bg-white dark:bg-gray-800 w-full h-[400px] max-w-md mx-auto">
       <h2 className="text-lg font-semibold mb-2 text-center">Subscribe for Latest News</h2>
 
       {subscribed ? (

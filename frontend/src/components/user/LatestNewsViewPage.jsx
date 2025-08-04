@@ -4,7 +4,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { SearchContext } from '../../context/SearchContext';
 import './Navbar.css';
 
-const Navbar = () => {
+const LatestNewsViewPage = () => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
   const { keyword, setKeyword, handleSearch } = useContext(SearchContext);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -135,4 +135,4 @@ const Navbar = () => {
   }
 };
 
-export default Navbar;
+export default LatestNewsViewPage;

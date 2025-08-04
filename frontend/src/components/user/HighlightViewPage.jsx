@@ -49,11 +49,11 @@ const ArticleViewPage = () => {
   }, [id, type]);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 py-8">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row min-h-screen gap-6">
+    <div className="bg-gray-100  dark:bg-gray-900 min-h-screen px-14 py-8">
+      <div className="max-w-8xl  mx-auto flex flex-col md:flex-row min-h-screen gap-6">
 
         {/* Main Content with Reduced Width */}
-        <div className="w-full md:w-[70%] flex flex-col p-6 bg-white rounded-3xl border border-purple-200">
+        <div className="w-full md:w-[84%] flex flex-col p-6 bg-white rounded-3xl border border-purple-200">
           <div className="bg-white rounded-2xl overflow-hidden p-8 mb-6 border border-gray-100">
             {loading && <p className="text-center">Loading...</p>}
 

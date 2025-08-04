@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 const RecentHeadlines = () => {
   const [headlines, setHeadlines] = useState([]);
@@ -10,10 +11,12 @@ const RecentHeadlines = () => {
       try {
         const res = await fetch("http://localhost:3003/api/headlines");
         const data = await res.json();
-        setHeadlines(data.slice(0, 10));
+        setTimeout(() => {
+          setHeadlines(data.slice(0, 10));
+          setLoading(false);
+        }, 4000); // Simulate 4-second load
       } catch (err) {
         console.error("Error loading headlines:", err);
-      } finally {
         setLoading(false);
       }
     };
@@ -22,26 +25,36 @@ const RecentHeadlines = () => {
   }, []);
 
   return (
-    <div className="bg-white border border-purple-100 rounded-lg p-5 flex flex-col flex-grow w-full max-w-md">
-      <h2 className="text-lg font-bold text-purple-600 mb-4 flex items-center">
-        <i className="fas fa-newspaper text-purple-600 mr-2"></i> Recent Headlines
-      </h2>
+    <div className="bg-white border border-purple-100 rounded-xl p-5 flex flex-col w-full max-w-md">
+      
+      {/* Conditionally render heading only when loading is false */}
+      {!loading && (
+        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <i className="fas fa-bolt text-purple-600"></i>
+          Recent Headlines
+        </h2>
+      )}
 
-      <div className="overflow-y-auto mb-1 mt-2 custom-scroll max-h-[330px]">
-        <ul className="space-y-2 text-xs font-roboto">
+      <div className="flex-1 overflow-y-auto custom-scroll max-h-[470px]">
+        <ul className="space-y-2 text-sm">
           {loading ? (
-            <li className="text-gray-500">Loading...</li>
+            Array.from({ length: 16 }).map((_, idx) => (
+              <li
+                key={idx}
+                className="h-5 bg-gray-300 rounded-md animate-pulse w-full"
+              ></li>
+            ))
           ) : headlines.length === 0 ? (
             <li className="text-gray-500">No headlines available.</li>
           ) : (
             headlines.map((h, index) => (
               <li
                 key={index}
-                className="p-1 bg-white rounded-md shadow-xs border border-gray-100"
+                className="p-2 bg-white rounded-md border border-gray-200"
               >
                 <Link
                   to={h.link}
-                  className="block text-gray-700 hover:text-purple-500 transition"
+                  className="block text-gray-800 hover:text-purple-600 transition"
                 >
                   {h.headline}
                 </Link>
@@ -50,8 +63,6 @@ const RecentHeadlines = () => {
           )}
         </ul>
       </div>
-
-     
     </div>
   );
 };

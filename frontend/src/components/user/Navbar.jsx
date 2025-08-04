@@ -18,14 +18,16 @@ const Navbar = () => {
 
 
   return (
-    <nav className="navbar bg-gray-800 py-4 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between mx-auto max-w-7xl rounded-lg">
+    <nav className="navbar bg-gray-800 py-6 px-6 md:px-10 flex flex-col md:flex-row items-center justify-between w-full rounded-none">
+
       <div className="logo flex items-center text-3xl font-bold text-white mb-4 md:mb-0">
         <span className="text-purple-400 text-3xl mr-2">🌐</span>
         <span className="logo-font">News</span>
         <span className="logo-font text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-400">Alpha</span>
       </div>
 
-      <ul className="main-menu flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4 items-center text-xs font-light text-gray-200">
+      <ul className="main-menu flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 items-center text-sm md:text-base font-medium text-gray-200 font-thin">
+
         <li>
           <Link to="/user/dashboard" className="hover:text-purple-400 px-2 py-2 rounded-md transition duration-150 ease-in-out">Home</Link>
         </li>
