@@ -1,0 +1,315 @@
+const mongoose = require('mongoose');
+const Headline = require('../Models/Headline');
+
+mongoose.connect('mongodb://localhost:27017/news_portal', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const seedHeadlines = [
+  {
+    title: "India Launches Chandrayaan-4 Mission",
+    headline: "Chandrayaan-4 heads to the Moon",
+    description: "ISRO successfully launches Chandrayaan-4 to explore Moon's south pole.",
+    content: "India’s Chandrayaan-4 mission is a significant leap in lunar exploration...",
+    image: "https://example.com/images/chandrayaan4.jpg",
+    link: "https://example.com/news/chandrayaan-4",
+    author: "Ravi Mehta",
+    category: "Science",
+    tags: ["ISRO", "Moon Mission", "Chandrayaan"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-01"),
+    published_at: new Date("2025-07-01"),
+    country: "India",
+    state: "Andhra Pradesh"
+  },
+  {
+    title: "Global Markets Rally on AI Boom",
+    headline: "Stock markets hit record highs",
+    description: "Tech stocks surge as AI investments grow worldwide.",
+    content: "Stock markets across the globe rallied today as investors bet big on AI companies...",
+    image: "https://example.com/images/ai-market.jpg",
+    link: "https://example.com/news/ai-market-rally",
+    author: "Anjali Shah",
+    category: "Finance",
+    tags: ["Stock Market", "AI", "Tech"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-02"),
+    published_at: new Date("2025-07-02"),
+    country: "USA",
+    state: "New York"
+  },
+  {
+    title: "Tokyo to Host Climate Summit 2025",
+    headline: "World leaders to discuss climate in Tokyo",
+    description: "Annual climate summit to be held in Japan with 200+ nations participating.",
+    content: "Japan will host the 2025 Climate Change Summit in Tokyo...",
+    image: "https://example.com/images/climate-summit.jpg",
+    link: "https://example.com/news/climate-summit-tokyo",
+    author: "Ken Watanabe",
+    category: "Environment",
+    tags: ["Climate", "Summit", "Environment"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-03"),
+    published_at: new Date("2025-07-03"),
+    country: "Japan",
+    state: "Tokyo"
+  },
+  {
+    title: "Wimbledon 2025: Finals Set for Epic Showdown",
+    headline: "Wimbledon finalists announced",
+    description: "Top seeds set to clash in thrilling Wimbledon final.",
+    content: "The 2025 Wimbledon final will see an epic battle between...",
+    image: "https://example.com/images/wimbledon.jpg",
+    link: "https://example.com/news/wimbledon-finals",
+    author: "Mark Spencer",
+    category: "Sports",
+    tags: ["Wimbledon", "Tennis", "Sports"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-04"),
+    published_at: new Date("2025-07-04"),
+    country: "UK",
+    state: "London"
+  },
+  {
+    title: "Apple Unveils iPhone 17 with AI Chip",
+    headline: "iPhone 17: Smartest iPhone yet",
+    description: "Apple’s iPhone 17 integrates AI chip for next-gen features.",
+    content: "Apple has officially launched the iPhone 17, boasting its new A19 AI-powered chip...",
+    image: "https://example.com/images/iphone17.jpg",
+    link: "https://example.com/news/iphone-17-launch",
+    author: "Sophia Lee",
+    category: "Technology",
+    tags: ["Apple", "iPhone 17", "AI"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-05"),
+    published_at: new Date("2025-07-05"),
+    country: "USA",
+    state: "California"
+  },
+  {
+    title: "NASA Discovers Water on Mars Crater",
+    headline: "New hope for life on Mars",
+    description: "NASA’s Mars Rover detects trace water beneath crater surface.",
+    content: "NASA’s Perseverance rover has made a groundbreaking discovery...",
+    image: "https://example.com/images/mars-water.jpg",
+    link: "https://example.com/news/nasa-mars-water",
+    author: "David Clark",
+    category: "Science",
+    tags: ["NASA", "Mars", "Discovery"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-06"),
+    published_at: new Date("2025-07-06"),
+    country: "USA",
+    state: "Florida"
+  },
+  {
+    title: "India’s GDP Growth Hits 8% in Q1",
+    headline: "Economy on fast track",
+    description: "India records 8% GDP growth in first quarter of 2025.",
+    content: "The Indian economy continues its robust growth path with 8% GDP growth...",
+    image: "https://example.com/images/india-economy.jpg",
+    link: "https://example.com/news/india-gdp-growth",
+    author: "Neha Verma",
+    category: "Economy",
+    tags: ["India", "GDP", "Growth"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-07"),
+    published_at: new Date("2025-07-07"),
+    country: "India",
+    state: "Delhi"
+  },
+  {
+    title: "Paris Introduces Driverless Public Buses",
+    headline: "Paris moves to autonomous transport",
+    description: "City of Paris rolls out self-driving buses in public transport trial.",
+    content: "Paris has taken a big leap toward smart mobility with its new autonomous bus pilot...",
+    image: "https://example.com/images/paris-bus.jpg",
+    link: "https://example.com/news/paris-driverless-bus",
+    author: "Claire Dubois",
+    category: "Technology",
+    tags: ["Paris", "Self-Driving", "Transport"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-08"),
+    published_at: new Date("2025-07-08"),
+    country: "France",
+    state: "Île-de-France"
+  },
+  {
+    title: "Olympics 2028 Preparations Begin in LA",
+    headline: "Los Angeles gears up for 2028 Olympics",
+    description: "Infrastructure and sports facility upgrades start for LA Olympics 2028.",
+    content: "Los Angeles has kicked off preparations for the 2028 Summer Olympics...",
+    image: "https://example.com/images/la-olympics.jpg",
+    link: "https://example.com/news/olympics-2028",
+    author: "Tom Harris",
+    category: "Sports",
+    tags: ["Olympics", "LA 2028", "Games"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-08"),
+    published_at: new Date("2025-07-08"),
+    country: "USA",
+    state: "California"
+  },
+  {
+    title: "Global Chip Shortage Likely to Ease by 2026",
+    headline: "Relief ahead for chip industry",
+    description: "Experts forecast chip supply normalization by early 2026.",
+    content: "Semiconductor manufacturers expect production levels to stabilize...",
+    image: "https://example.com/images/chip-shortage.jpg",
+    link: "https://example.com/news/chip-shortage-2026",
+    author: "Leo Martinez",
+    category: "Business",
+    tags: ["Chip Shortage", "Semiconductors", "Manufacturing"],
+    isArchived: false,
+    publishedAt: new Date("2025-07-08"),
+    published_at: new Date("2025-07-08"),
+    country: "Germany",
+    state: "Bavaria"
+  },
+
+  {
+  title: "Ayodhya Ram Mandir Sees Record Pilgrims",
+  headline: "Over 5 lakh pilgrims visit Ram Mandir",
+  description: "Ayodhya welcomes record-breaking crowds to the newly constructed Ram Mandir.",
+  content: "Devotees from across the country are visiting Ayodhya’s Ram Mandir after its grand inauguration...",
+  image: "https://example.com/images/ram-mandir.jpg",
+  link: "https://example.com/news/ram-mandir-pilgrims",
+  author: "Rajesh Mishra",
+  category: "Religion",
+  tags: ["Ayodhya", "Ram Mandir", "Pilgrimage"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "Lucknow Metro Expands to New Corridors",
+  headline: "Lucknow Metro adds 3 new routes",
+  description: "The city of Lucknow expands metro connectivity to ease daily travel.",
+  content: "With rising urban population, Lucknow Metro Rail Corporation has launched 3 new corridors...",
+  image: "https://example.com/images/lucknow-metro.jpg",
+  link: "https://example.com/news/lucknow-metro-expansion",
+  author: "Priya Tiwari",
+  category: "Infrastructure",
+  tags: ["Lucknow", "Metro", "Urban Development"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "Kanpur Leather Industry Gets Export Boost",
+  headline: "Kanpur leather exports surge by 25%",
+  description: "New international contracts help Kanpur’s leather sector grow rapidly.",
+  content: "Kanpur’s leather manufacturing industry has seen a 25% increase in export orders...",
+  image: "https://example.com/images/kanpur-leather.jpg",
+  link: "https://example.com/news/kanpur-leather-exports",
+  author: "Farhan Ahmad",
+  category: "Business",
+  tags: ["Kanpur", "Leather", "Exports"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "Varanasi Sets Record in Ganga Cleaning Drive",
+  headline: "Varanasi cleans 100 tons of waste from Ganga",
+  description: "Major cleanup initiative removes 100 tons of waste from Ganga River in Varanasi.",
+  content: "Under the Namami Gange project, Varanasi volunteers and officials removed huge waste deposits...",
+  image: "https://example.com/images/ganga-clean.jpg",
+  link: "https://example.com/news/ganga-cleanup-varanasi",
+  author: "Shraddha Gupta",
+  category: "Environment",
+  tags: ["Ganga", "Cleanliness", "Namami Gange"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "UP Police Launches AI-Based Crime Tracker",
+  headline: "AI tool to predict crime hotspots in UP",
+  description: "Uttar Pradesh Police launches predictive system to analyze crime patterns using AI.",
+  content: "A new crime analytics platform has been deployed to forecast areas at higher risk...",
+  image: "https://example.com/images/up-police-ai.jpg",
+  link: "https://example.com/news/up-police-ai-tracker",
+  author: "Arvind Singh",
+  category: "Technology",
+  tags: ["AI", "Police", "Crime"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "Agra Tourism Rebounds Post Pandemic",
+  headline: "Taj Mahal footfall back to pre-COVID levels",
+  description: "Agra’s tourism sector recovers as international visitors return.",
+  content: "After a steep fall during the pandemic, Agra has seen a major boost in tourism...",
+  image: "https://example.com/images/taj-tourism.jpg",
+  link: "https://example.com/news/tajmahal-tourism-return",
+  author: "Kavita Sharma",
+  category: "Travel",
+  tags: ["Agra", "Taj Mahal", "Tourism"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "Noida to Become India’s Drone Manufacturing Hub",
+  headline: "Drone tech park to open in Noida",
+  description: "UP government approves drone manufacturing corridor near Noida.",
+  content: "In a push to boost local manufacturing, Noida will soon house India’s largest drone tech park...",
+  image: "https://example.com/images/noida-drone.jpg",
+  link: "https://example.com/news/noida-drone-park",
+  author: "Mehul Raj",
+  category: "Technology",
+  tags: ["Noida", "Drones", "Startup"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+},
+{
+  title: "UP Class 12 Results Announced – Girls Outshine Boys",
+  headline: "Girls secure top 3 ranks in UP Board results",
+  description: "Uttar Pradesh Board announces 2025 Class 12 results with record pass percentage.",
+  content: "In an impressive academic feat, girls took the top 3 positions in the 2025 UP Board exams...",
+  image: "https://example.com/images/up-board-results.jpg",
+  link: "https://example.com/news/up-board-results-2025",
+  author: "Sonal Saxena",
+  category: "Education",
+  tags: ["UP Board", "Results", "Education"],
+  isArchived: false,
+  publishedAt: new Date("2025-07-09"),
+  published_at: new Date("2025-07-09"),
+  country: "India",
+  state: "Uttar Pradesh"
+}
+
+];
+
+async function seed() {
+  try {
+    await Headline.deleteMany({});
+    await Headline.insertMany(seedHeadlines);
+    console.log(" Seed data inserted successfully.");
+    mongoose.connection.close();
+  } catch (error) {
+    console.error(" Error inserting seed data:", error);
+    mongoose.connection.close();
+  }
+}
+
+seed();
+

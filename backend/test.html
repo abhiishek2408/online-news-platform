@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Featured News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-6 text-center">📢 Featured News</h1>
+    <div id="news-list" class="flex flex-wrap gap-6 justify-center"></div>
+  </div>
+
+  <script>
+    const apiBase = "http://localhost:3003/api/news";
+
+    function hasViewed(newsId) {
+      const viewed = JSON.parse(sessionStorage.getItem("viewedNews") || "[]");
+      return viewed.includes(newsId);
+    }
+
+    function markAsViewed(newsId) {
+      const viewed = JSON.parse(sessionStorage.getItem("viewedNews") || "[]");
+      viewed.push(newsId);
+      sessionStorage.setItem("viewedNews", JSON.stringify(viewed));
+    }
+
+    async function incrementViewCount(newsId) {
+      if (hasViewed(newsId)) return;
+      await fetch(`${apiBase}/${newsId}/view`, { method: 'PATCH' });
+      markAsViewed(newsId);
+    }
+
+    async function loadNews() {
+      const res = await fetch(apiBase);
+      const newsList = await res.json();
+
+      const container = document.getElementById("news-list");
+      container.innerHTML = "";
+
+      const featuredNews = newsList.filter(news => news.isFeatured);
+
+      const newsCards = await Promise.all(featuredNews.map(async (news) => {
+        await incrementViewCount(news._id);
+
+        const card = document.createElement("div");
+
+        card.innerHTML = `
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-2 hover:shadow-md transition w-64 text-sm">
+            <img src="${news.image}" class="w-full h-32 object-cover rounded-md mb-3" />
+            <h2 class="text-base font-semibold text-gray-800 mb-1 line-clamp-2">${news.title}</h2>
+            <p class="text-xs text-gray-600 mb-2 line-clamp-3">${news.description}</p>
+
+            <div class="flex justify-between text-gray-500 text-xs mb-3">
+              <span>👀 <span id="views-${news._id}">${news.views}</span></span>
+              <span>❤️ <span id="likes-${news._id}">${news.likes}</span></span>
+            </div>
+
+            <div class="flex gap-2">
+              <button id="like-btn-${news._id}" onclick="likeNews('${news._id}')" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-1 rounded text-xs">❤️ Like</button>
+              <button onclick="showComments('${news._id}')" class="flex-1 text-purple-600 hover:underline text-xs">💬 Comment</button>
+            </div>
+
+            <div id="comments-${news._id}" class="mt-3 hidden">
+              <form onsubmit="submitComment(event, '${news._id}')" class="space-y-1 mt-2">
+                <input name="name" required placeholder="Your name" class="border p-1 w-full rounded text-xs" />
+                <textarea name="comment" required placeholder="Add a comment..." class="border p-1 w-full rounded text-xs"></textarea>
+                <button class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded text-xs">Post</button>
+              </form>
+              <ul id="comment-list-${news._id}" class="mt-2 space-y-1 text-xs text-gray-700"></ul>
+            </div>
+          </div>
+        `;
+
+        return card;
+      }));
+
+      newsCards.forEach(card => container.appendChild(card));
+    }
+
+    async function likeNews(id) {
+      const likedNews = JSON.parse(sessionStorage.getItem("likedNews") || "[]");
+      if (likedNews.includes(id)) {
+        alert("You’ve already liked this news item in this session.");
+        return;
+      }
+
+      const res = await fetch(`${apiBase}/${id}/like`, { method: "PATCH" });
+      const data = await res.json();
+
+      document.getElementById(`likes-${id}`).innerText = data.likes;
+
+      likedNews.push(id);
+      sessionStorage.setItem("likedNews", JSON.stringify(likedNews));
+    }
+
+    async function showComments(id) {
+      const commentsDiv = document.getElementById(`comments-${id}`);
+      commentsDiv.classList.toggle("hidden");
+
+      const res = await fetch(`${apiBase}/${id}/comments`);
+      const comments = await res.json();
+
+      const list = document.getElementById(`comment-list-${id}`);
+      list.innerHTML = comments.map(c => `<li><strong>${c.name}:</strong> ${c.comment}</li>`).join("");
+    }
+
+    async function submitComment(e, id) {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const comment = form.comment.value.trim();
+
+      if (!name || !comment) return;
+
+      await fetch(`${apiBase}/${id}/comment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, comment })
+      });
+
+      form.reset();
+      showComments(id);
+    }
+
+    loadNews();
+  </script>
+</body>
+</html>

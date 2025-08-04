@@ -1,0 +1,12 @@
+.dropdown-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dropdown-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.logo-font {
+  font-family: 'Inter', sans-serif;
+}
