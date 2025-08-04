@@ -8,7 +8,7 @@ const TopHighlight = () => {
   useEffect(() => {
     const loadHighlight = async () => {
       try {
-        const res = await fetch('http://localhost:3003/api/highlights');
+        const res = await fetch('https://online-news-platform-backend.onrender.com/api/highlights');
         const data = await res.json();
         
       setTimeout(() => {

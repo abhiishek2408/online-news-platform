@@ -14,7 +14,7 @@ const NewsPage = () => {
 
     document.title = `${keyword} News`;
 
-    fetch(`http://localhost:3003/api/newsapi/api-news-search?q=${keyword}`)
+    fetch(`https://online-news-platform-backend.onrender.com/api/newsapi/api-news-search?q=${keyword}`)
       .then((res) => res.json())
       .then((data) => {
         setArticles(data.articles || []);

@@ -8,7 +8,7 @@ const AllLatestNewsPage = () => {
   useEffect(() => {
     const loadAllLatestNewsCards = async () => {
       try {
-        const res = await fetch("http://localhost:3003/api/latest-news");
+        const res = await fetch("https://online-news-platform-backend.onrender.com/api/latest-news");
         const data = await res.json();
         setNewsList(data);
       } catch (err) {

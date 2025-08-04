@@ -5,7 +5,7 @@ const LiveUpdates = () => {
   const [message, setMessage] = useState('');
   const [updateId, setUpdateId] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
-  const API = 'http://localhost:3003/api/live-updates';
+  const API = 'https://online-news-platform-backend.onrender.com/api/live-updates';
 
   useEffect(() => {
     loadData();

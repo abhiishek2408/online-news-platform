@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const apiBase = 'http://localhost:3003/api/news';
+const apiBase = 'https://online-news-platform-backend.onrender.com/api/news';
 
 const hasViewed = (newsId) => {
   const viewed = JSON.parse(sessionStorage.getItem('viewedNews') || '[]');

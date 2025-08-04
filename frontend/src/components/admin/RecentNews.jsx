@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const RecentNews = () => {
-  const API = 'http://localhost:3003/api/recent-news';
+  const API = 'https://online-news-platform-backend.onrender.com/api/recent-news';
   const [newsList, setNewsList] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState({

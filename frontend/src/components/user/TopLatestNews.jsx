@@ -8,7 +8,7 @@ const LatestNews = () => {
   useEffect(() => {
     const loadLatestNewsCards = async () => {
       try {
-        const res = await fetch("http://localhost:3003/api/latest-news");
+        const res = await fetch("https://online-news-platform-backend.onrender.com/api/latest-news");
         const data = await res.json();
         setTimeout(() => {
           setNewsList(data.slice(0, 4));

@@ -9,7 +9,7 @@ const TopSearchedNews = () => {
   const fetchNewsByKeyword = async (searchTerm) => {
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:3003/api/newsapi/api-news-search?q=${searchTerm}`);
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/newsapi/api-news-search?q=${searchTerm}`);
       const data = await res.json();
       setArticles(data.articles || []);
     } catch (err) {

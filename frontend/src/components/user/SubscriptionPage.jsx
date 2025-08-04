@@ -11,7 +11,7 @@ const SubscriptionPage = () => {
     setLoading(true);
     setMessage('');
     try {
-      const response = await axios.post('http://localhost:3003/api/subscribe', { email });
+      const response = await axios.post('https://online-news-platform-backend.onrender.com/api/subscribe', { email });
 
       if (response.status === 200) {
         setSubscribed(true);

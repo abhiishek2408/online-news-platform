@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   // 🔐 LOGIN
   const login = async (email, password) => {
     try {
-      const res = await axios.post('http://localhost:3003/api/login', {
+      const res = await axios.post('https://online-news-platform-backend.onrender.com/api/login', {
         email,
         password,
       });
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   // 📝 REGISTER
   const register = async (name, email, password) => {
   try {
-    const res = await axios.post('http://localhost:3003/api/register', {
+    const res = await axios.post('https://online-news-platform-backend.onrender.com/api/register', {
       name,
       email,
       password,

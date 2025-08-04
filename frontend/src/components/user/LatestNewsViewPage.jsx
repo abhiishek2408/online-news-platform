@@ -28,7 +28,7 @@ const LatestNewsViewPage = () => {
       }
 
       try {
-        const res = await fetch(`http://localhost:3003/api/latest-news/${newsId}`);
+        const res = await fetch(`https://online-news-platform-backend.onrender.com/api/latest-news/${newsId}`);
         if (!res.ok) throw new Error('Failed to fetch news');
 
         const data = await res.json();

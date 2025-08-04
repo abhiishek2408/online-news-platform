@@ -24,9 +24,9 @@ const ArticleViewPage = () => {
       try {
         let res, data;
         if (type === 'latest-news') {
-          res = await fetch(`http://localhost:3003/api/latest-news/${id}`);
+          res = await fetch(`https://online-news-platform-backend.onrender.com/api/latest-news/${id}`);
         } else {
-          res = await fetch(`http://localhost:3003/api/highlight/${id}`);
+          res = await fetch(`https://online-news-platform-backend.onrender.com/api/highlight/${id}`);
         }
 
         if (!res.ok) throw new Error('Failed to fetch data');

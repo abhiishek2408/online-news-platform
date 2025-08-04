@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ManageUsers = () => {
-  const API = 'http://localhost:3003/api/users';
+  const API = 'https://online-news-platform-backend.onrender.com/api/users';
 
   const [users, setUsers] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);

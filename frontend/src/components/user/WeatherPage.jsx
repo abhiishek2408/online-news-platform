@@ -9,7 +9,7 @@ const WeatherPage = () => {
 
   const getForecast = useCallback(async (lat, lon) => {
     try {
-      const res = await fetch(`http://localhost:3003/api/weather/forecast?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/weather/forecast?lat=${lat}&lon=${lon}`);
       const data = await res.json();
       const filtered = data.list.filter((_, i) => i % 8 === 0).slice(0, 3);
       setForecast(filtered);
@@ -21,7 +21,7 @@ const WeatherPage = () => {
 
   const fetchWeatherByCoords = useCallback(async (lat, lon) => {
     try {
-      const res = await fetch(`http://localhost:3003/api/weather/current?lat=${lat}&lon=${lon}`);
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/weather/current?lat=${lat}&lon=${lon}`);
       const data = await res.json();
       setCurrentWeather(data);
       getForecast(lat, lon);
@@ -56,7 +56,7 @@ const WeatherPage = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3003/api/weather/city?q=${cityInput.trim()}`);
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/weather/city?q=${cityInput.trim()}`);
       const data = await res.json();
       if (data.cod === 200) {
         setCurrentWeather(data);

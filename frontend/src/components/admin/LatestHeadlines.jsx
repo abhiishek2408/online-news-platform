@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const LatestHeadlines = () => {
-  const API = 'http://localhost:3003/api/latest-headlines';
+  const API = 'https://online-news-platform-backend.onrender.com/api/latest-headlines';
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     title: '', headline: '', description: '', content: '',

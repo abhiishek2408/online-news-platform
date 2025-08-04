@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const SpecialNews = () => {
-  const API = 'http://localhost:3003/api/special-news';
+  const API = 'https://online-news-platform-backend.onrender.com/api/special-news';
 
   const [newsList, setNewsList] = useState([]);
   const [showModal, setShowModal] = useState(false);

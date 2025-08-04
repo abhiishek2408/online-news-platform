@@ -7,7 +7,7 @@ const AllHighlightsPage = () => {
   useEffect(() => {
     const loadAllHighlights = async () => {
       try {
-        const res = await fetch("http://localhost:3003/api/all-highlights");
+        const res = await fetch("https://online-news-platform-backend.onrender.com/api/all-highlights");
         const data = await res.json();
         setHighlights(data);
       } catch (err) {

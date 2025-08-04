@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Highlight = () => {
-  const API_URL = 'http://localhost:3003/api/managehighlights';
+  const API_URL = 'https://online-news-platform-backend.onrender.com/api/managehighlights';
   const [highlights, setHighlights] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({

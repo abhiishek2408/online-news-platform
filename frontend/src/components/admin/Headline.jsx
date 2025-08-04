@@ -18,7 +18,7 @@ const Headline = () => {
   const [editingId, setEditingId] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const API_URL = "http://localhost:3003/api/headlines";
+  const API_URL = "https://online-news-platform-backend.onrender.com/api/headlines";
 
   const fetchHeadlines = async () => {
     const res = await fetch(API_URL);

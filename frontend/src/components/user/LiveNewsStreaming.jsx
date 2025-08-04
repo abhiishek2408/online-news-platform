@@ -21,7 +21,7 @@ const LiveNewsStreaming = () => {
   useEffect(() => {
     const fetchBreakingNews = async () => {
       try {
-        const res = await fetch('http://localhost:3003/api/live-updates');
+        const res = await fetch('https://online-news-platform-backend.onrender.com/api/live-updates');
         const updates = await res.json();
         setTimeout(() => {
           setBreakingNews(updates);

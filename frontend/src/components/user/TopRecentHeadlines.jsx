@@ -9,7 +9,7 @@ const RecentHeadlines = () => {
   useEffect(() => {
     const loadHeadlines = async () => {
       try {
-        const res = await fetch("http://localhost:3003/api/headlines");
+        const res = await fetch("https://online-news-platform-backend.onrender.com/api/headlines");
         const data = await res.json();
         setTimeout(() => {
           setHeadlines(data.slice(0, 10));

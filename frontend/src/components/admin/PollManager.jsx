@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const PollManager = () => {
-  const API = 'http://localhost:3003/api/manage-polls';
+  const API = 'https://online-news-platform-backend.onrender.com/api/manage-polls';
 
   const [polls, setPolls] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);

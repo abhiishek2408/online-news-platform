@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ManageComments = () => {
-  const API_URL = 'http://localhost:3003/api/comments';
+  const API_URL = 'https://online-news-platform-backend.onrender.com/api/comments';
 
   const [comments, setComments] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);

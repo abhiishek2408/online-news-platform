@@ -7,7 +7,7 @@ const Poll = () => {
 
   const fetchPoll = async () => {
     try {
-      const res = await fetch('http://localhost:3003/api/polls/latest');
+      const res = await fetch('https://online-news-platform-backend.onrender.com/api/polls/latest');
       const data = await res.json();
       const alreadyVoted = localStorage.getItem(`voted_poll_${data._id}`);
       setVoted(!!alreadyVoted);
@@ -30,7 +30,7 @@ const Poll = () => {
     if (!poll) return;
 
     try {
-      const res = await fetch(`http://localhost:3003/api/polls/vote/${poll._id}`, {
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/polls/vote/${poll._id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ optionIndex: index }),
