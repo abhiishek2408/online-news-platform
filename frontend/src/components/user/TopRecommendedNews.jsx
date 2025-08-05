@@ -82,9 +82,9 @@ const NewsSection = () => {
   }, []);
 
   return (
-    <div className={`flex flex-col lg:flex-row justify-between gap-4 w-full max-w-[1200px] p-3 mx-auto mt-5 rounded-xl items-start ${loading ? 'animate-pulse bg-gray-100' : 'bg-white'}`}>
+    <div className={`flex flex-col gap-4 w-full max-w-[1200px] px-3 sm:px-4 md:px-6 py-4 mx-auto mt-5 rounded-xl items-start ${loading ? 'animate-pulse bg-gray-100' : 'bg-white'}`}>
       {loading ? (
-        <div className="p-4 bg-gray-100 border border-gray-200 rounded-md flex-1 space-y-4">
+        <div className="p-4 bg-gray-100 border border-gray-200 rounded-md flex-1 space-y-4 w-full">
           <div className="h-5 w-1/3 bg-gray-300 rounded"></div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {Array(4).fill(0).map((_, i) => (
@@ -93,15 +93,15 @@ const NewsSection = () => {
           </div>
         </div>
       ) : (
-        <div className="p-4 bg-white border border-gray-200 rounded-md bg-gray-50 flex-1">
-          <h2 className="text-lg font-bold text-grey-700 mb-2 flex items-center">
+        <div className="p-4 bg-white border border-gray-200 rounded-md bg-gray-50 w-full">
+          <h2 className="text-lg font-bold text-gray-700 mb-2 flex items-center">
             <i className="fas fa-lightbulb text-purple-500 mr-2"></i> You Might Also Like
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {featuredNews.map((news) => (
               <div
                 key={news._id}
-                className="bg-white border border-gray-200 rounded-lg shadow-sm p-2 h-[300px] hover:shadow-md transition w-48 text-[13px]"
+                className="bg-white border border-gray-200 rounded-lg shadow-sm p-3 hover:shadow-md transition text-[13px] flex flex-col h-full"
               >
                 <img src={news.image} className="w-full h-28 object-cover rounded-md mb-2" alt="news" />
                 <h2 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-2">{news.title}</h2>
@@ -110,12 +110,12 @@ const NewsSection = () => {
                   <span><i className="fas fa-eye mr-1"></i>{news.views}</span>
                   <span><i className="fas fa-heart mr-1"></i>{news.likes}</span>
                 </div>
-                <div className="flex gap-1">
+                <div className="flex gap-1 mt-auto">
                   <button
                     className="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-1 rounded text-xs"
                     onClick={() => likeNews(news._id)}
                   >
-                    <span><i className="fas fa-heart mr-1"></i></span>Like
+                    <i className="fas fa-heart mr-1"></i>Like
                   </button>
                   <button
                     className="flex-1 text-purple-600 hover:underline text-xs"
@@ -132,8 +132,8 @@ const NewsSection = () => {
 
       {/* 💬 Comment Modal */}
       {showModal && modalContent && (
-        <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-sm p-4 rounded shadow relative">
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 px-4">
+          <div className="bg-white w-[90%] sm:w-[80%] md:max-w-sm p-4 rounded shadow relative">
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-2 right-3 text-gray-600 text-xl"
@@ -153,7 +153,7 @@ const NewsSection = () => {
               ></textarea>
               <button className="bg-purple-500 hover:bg-purple-600 text-white px-2 py-1 rounded text-xs">Post</button>
             </form>
-            <ul className="mt-2 space-y-1 text-xs text-gray-700">
+            <ul className="mt-2 space-y-1 text-xs text-gray-700 max-h-40 overflow-y-auto pr-1">
               {modalContent.comments.map((c, i) => (
                 <li key={i}>
                   <strong>{c.name}:</strong> {c.comment}
