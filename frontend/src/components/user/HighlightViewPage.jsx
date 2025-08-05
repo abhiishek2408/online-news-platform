@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import LatestNews from './TopLatestNews';
 import RecentHeadlines from './TopRecentHeadlines';
 
-const ArticleViewPage = () => {
+const HighlightViewPage = () => {
   const [searchParams] = useSearchParams();
   const [highlight, setHighlight] = useState(null);
   const [latestNews, setLatestNews] = useState(null);
@@ -121,4 +121,4 @@ const ArticleViewPage = () => {
   );
 };
 
-export default ArticleViewPage;
+export default HighlightViewPage;
