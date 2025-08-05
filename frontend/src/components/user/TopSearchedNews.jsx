@@ -6,6 +6,7 @@ const TopSearchedNews = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
   const fetchNewsByKeyword = async (searchTerm) => {
     try {
       setLoading(true);
@@ -15,18 +16,22 @@ const TopSearchedNews = () => {
     } catch (err) {
       console.error('Error fetching news:', err);
     } finally {
-      setTimeout(() => setLoading(false), 4000); // simulate delay for skeleton visibility
+      setTimeout(() => setLoading(false), 4000);
     }
   };
 
+  // 👇 Ye effect sirf handleSearch() ke baad chalega
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (keyword.trim()) {
+      console.log("Searching for:", keyword); // Debug line
       fetchNewsByKeyword(keyword);
       setTimeout(() => {
         document.getElementById('search-results')?.scrollIntoView({ behavior: 'smooth' });
       }, 300);
     }
-  }, [triggerSearch, keyword]);
+  }, [triggerSearch]); // ✅ Only triggerSearch, not keyword
+
 
   useEffect(() => {
     fetchNewsByKeyword('Technology');

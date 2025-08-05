@@ -14,7 +14,7 @@ const TopHighlight = () => {
       setTimeout(() => {
       setHighlight(data[0]);
       setLoading(false);
-      }, 4000);
+      }, 2000);
     } catch (err) {
       console.error("Error loading highlight:", err);
       setLoading(false); // Still hide skeleton if error
