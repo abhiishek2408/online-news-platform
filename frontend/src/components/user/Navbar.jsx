@@ -9,12 +9,6 @@ const Navbar = () => {
   const { keyword, setKeyword, handleSearch } = useContext(SearchContext);
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
-
   return (
     <nav className="navbar bg-gray-800 py-5 px-5 sm:px-10 flex flex-col sm:flex-row items-center justify-between w-full relative z-50">
       {/* Logo and Hamburger */}
@@ -40,29 +34,18 @@ const Navbar = () => {
           showMenu ? 'flex mt-4' : 'hidden sm:flex'
         }`}
       >
-        <li>
-          <Link to="/user/dashboard" className="hover:text-purple-400 px-2 py-2 transition">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/user/dashboard/weatherModal" className="hover:text-purple-400 px-2 py-2 transition">
-            Weather
-          </Link>
-        </li>
+        <li><Link to="/user/dashboard" className="hover:text-purple-400 px-2 py-2 transition">Home</Link></li>
+        <li><Link to="/user/dashboard/weatherModal" className="hover:text-purple-400 px-2 py-2 transition">Weather</Link></li>
 
         {/* Local News Dropdown */}
         <li className="relative group">
-          <span
-            tabIndex={0}
-            className="hover:text-purple-400 px-2 py-2 flex items-center cursor-pointer focus:outline-none"
-          >
+          <span tabIndex={0} className="hover:text-purple-400 px-2 py-2 flex items-center cursor-pointer focus:outline-none">
             Local News
             <svg className="ml-1 w-4 h-4 text-gray-200 group-hover:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
           </span>
-          <div className="dropdown absolute z-20 bg-gray-700 border border-gray-600 rounded-md grid grid-cols-2 gap-y-1 gap-x-6 p-3 mt-2 min-w-[250px] max-h-[310px] overflow-y-auto
+          <div className="dropdown absolute z-20 bg-gray-700 border border-gray-600 rounded-md grid grid-cols-2 gap-y-1 gap-x-6 p-3 mt-2 min-w-[300px] max-h-[310px] overflow-y-auto
             sm:left-1/2 sm:-translate-x-1/2 sm:top-full 
             left-0 top-[100%] translate-x-0 
             hidden group-hover:grid group-focus-within:grid"
@@ -84,10 +67,7 @@ const Navbar = () => {
 
         {/* Categories Dropdown */}
         <li className="relative group">
-          <span
-            tabIndex={0}
-            className="hover:text-purple-400 px-2 py-2 flex items-center cursor-pointer focus:outline-none"
-          >
+          <span tabIndex={0} className="hover:text-purple-400 px-2 py-2 flex items-center cursor-pointer focus:outline-none">
             Categories
             <svg className="ml-1 w-4 h-4 text-gray-200 group-hover:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -95,7 +75,7 @@ const Navbar = () => {
           </span>
           <div className="dropdown bg-gray-700 border border-gray-600 rounded-md absolute z-20 hidden group-hover:block group-focus-within:block top-full mt-2
             sm:left-1/2 sm:-translate-x-1/2 
-            left-0 translate-x-0 min-w-[150px]"
+            left-0 translate-x-0 min-w-[200px]"
           >
             {[
               "Religion", "LifeStyle", "Election", "Sports", "Quiz", "Facts", "Weather News", "Articles", "Editorial"
@@ -118,7 +98,6 @@ const Navbar = () => {
               type="text"
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
-              onKeyDown={handleKeyDown}
               placeholder="Search news..."
               className="w-full sm:w-36 px-3 py-1.5 rounded-md bg-gray-600 text-white placeholder-gray-400 border border-gray-500 focus:outline-none focus:border-purple-400 pr-10"
             />
