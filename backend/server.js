@@ -36,7 +36,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error('DB connection error:', err));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: 'https://online-news-platform.vercel.app',
   credentials: true
 }));
 
