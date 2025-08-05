@@ -8,7 +8,6 @@ const NewsPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     if (!keyword) return;
 
@@ -31,29 +30,33 @@ const NewsPage = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6 min-h-screen">
+    <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6 min-h-screen">
       
       {/* Main content */}
       <main className="lg:col-span-3 bg-white p-6 rounded-2xl border border-purple-200 shadow">
-        <h1 className="text-2xl font-bold text-purple-600 mb-6">{keyword} News</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-purple-600 mb-6 text-center sm:text-left">
+          {keyword} News
+        </h1>
 
         {loading ? (
-          <p className="text-purple-500">Loading...</p>
+          <p className="text-purple-500 text-center">Loading...</p>
         ) : articles.length === 0 ? (
-          <p className="text-gray-500">No news found for "{keyword}".</p>
+          <p className="text-gray-500 text-center">No news found for "{keyword}".</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {articles.map((article, idx) => (
               <div key={idx} className="bg-white border border-gray-200 p-4 rounded-lg shadow-sm flex flex-col">
                 {article.urlToImage && (
                   <img
                     src={article.urlToImage}
                     alt="news"
-                    className="w-full h-32 object-cover rounded mb-3"
+                    className="w-full h-36 sm:h-40 object-cover rounded mb-3"
                   />
                 )}
                 <h2 className="font-semibold text-sm text-purple-700 leading-snug line-clamp-2 mb-1">{article.title}</h2>
                 <p className="text-sm text-gray-600 line-clamp-3 flex-grow">{article.description}</p>
+
+                {/* External link preserved as <a> */}
                 <a
                   href={article.url}
                   target="_blank"
@@ -62,6 +65,16 @@ const NewsPage = () => {
                 >
                   Read More
                 </a>
+
+                {/* Example internal route for future dynamic routing */}
+                {/* 
+                <Link
+                  to={`/article/${idx}`}
+                  className="mt-2 text-purple-600 text-sm underline text-right"
+                >
+                  Read in App
+                </Link> 
+                */}
               </div>
             ))}
           </div>
@@ -71,7 +84,7 @@ const NewsPage = () => {
       {/* Sidebar */}
       <aside className="lg:col-span-1 bg-white p-5 border border-purple-200 rounded-2xl shadow sticky top-10 h-fit">
         <h2 className="text-lg font-bold text-purple-700 mb-4">📰 Top Headlines</h2>
-        <ul className="text-sm space-y-2 list-disc list-inside text-gray-700">
+        <ul className="text-sm space-y-2 list-none text-gray-700">
           {articles.slice(0, 15).map((article, idx) => (
             <li key={idx} className="leading-tight">
               <a
@@ -80,8 +93,8 @@ const NewsPage = () => {
                 rel="noopener noreferrer"
                 className="hover:text-purple-500 transition-colors"
               >
-                {article.title.length > 80
-                  ? article.title.slice(0, 80) + "..."
+                {article.title.length > 50
+                  ? article.title.slice(0, 60) + "..."
                   : article.title}
               </a>
             </li>
