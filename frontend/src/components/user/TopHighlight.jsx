@@ -89,7 +89,7 @@ const TopHighlight = () => {
         {!loading && (
           <div className="mt-6 text-right">
             <Link
-              to="allhighlightnews"
+              to="/user/dashboard/allhighlightnews"
               className="text-purple-700 hover:underline text-sm font-medium"
             >
               See more highlights &rarr;

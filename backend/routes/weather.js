@@ -30,7 +30,7 @@ router.get('/city', async (req, res) => {
   const data = await response.json();
   res.json(data);
 });
-console.log("🔑 API Key:", process.env.OPENWEATHER_API_KEY);
+
 
 
 export default router;

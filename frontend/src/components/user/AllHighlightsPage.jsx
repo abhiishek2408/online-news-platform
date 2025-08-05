@@ -35,13 +35,13 @@ const AllHighlightsPage = () => {
                   className="bg-white p-4 rounded-lg shadow border border-gray-200 mb-4"
                 >
                   <a
-                    href={`/user/highlight-page.html?id=${highlight._id}`}
+                    href={`/user/dashboard/articleviewpage?id=${highlight._id}`}
                     className="text-xl font-semibold text-gray-900 block mb-2"
                   >
                     {highlight.title}
                   </a>
                   <div className="h-52 overflow-hidden rounded-lg mb-3">
-                    <a href={`/user/highlight-page.html?id=${highlight._id}`}>
+                    <a href={`/user/dashboard/articleviewpage?id=${highlight._id}`}>
                       <img
                         src={highlight.image}
                         alt={highlight.title}

@@ -13,5 +13,5 @@ router.get('/api-news-search', async (req, res) => {
   const data = await response.json();
   res.json(data);
 });
-console.log("🔑 API Key:", process.env.NEWSAPI_KEY);
+
 export default router;
