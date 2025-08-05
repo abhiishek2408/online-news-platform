@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './Auth/AuthContext';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider } from './components/user/Context/ThemeContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Lazy loaded components

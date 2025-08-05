@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { SearchContext } from '../../context/SearchContext';
+import { SearchContext } from './Context/SearchContext';
 
 const TopSearchedNews = () => {
   const { keyword, triggerSearch } = useContext(SearchContext);

@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
-import { SearchProvider } from '../../context/SearchContext';
+import { SearchProvider } from './Context/SearchContext';
 
 const UserDashboard = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../context/ThemeContext';
-import { SearchContext } from '../../context/SearchContext';
+import { ThemeContext } from './Context/ThemeContext';
+import { SearchContext } from './Context/SearchContext';
 import './Navbar.css';
 
 const Navbar = () => {
