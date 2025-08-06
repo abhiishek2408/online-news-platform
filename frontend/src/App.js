@@ -48,7 +48,7 @@ function App() {
                 <Route path="articleviewpage" element={<HighlightViewPage />} />
                 <Route path="latestnewsview" element={<LatestNewsViewPage />} />
                 <Route path="allhighlightnews" element={<AllHighlightsPage />} />
-                <Route path="alllatestnews" element={<AllLatestNewsPage />} />
+                <Route path="all-latestnews" element={<AllLatestNewsPage />} />
                 <Route path="weatherModal" element={<WeatherPage />} />
                 <Route path="categorynewspage" element={<CategoryNewsPage />} />
                 <Route path="subscriptionpage" element={<SubscriptionPage />} />

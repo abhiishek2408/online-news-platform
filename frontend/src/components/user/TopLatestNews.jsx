@@ -87,7 +87,7 @@ const LatestNews = () => {
           <div className="h-5 bg-gray-300 rounded w-40 inline-block animate-pulse"></div>
         ) : (
           <Link
-            to="alllatestnews"
+            to="/user/dashboard/all-latestnews"
             className="text-purple-600 hover:underline text-base font-medium transition duration-300 ease-in-out"
           >
             See more Latest News &rarr;
