@@ -49,12 +49,12 @@ const HighlightViewPage = () => {
   }, [id, type]);
 
   return (
-    <div className="bg-gray-100  dark:bg-gray-900 min-h-screen px-14 py-8">
-      <div className="max-w-8xl  mx-auto flex flex-col md:flex-row min-h-screen gap-6">
+    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen px-4 sm:px-6 md:px-14 py-6 md:py-8">
+      <div className="max-w-8xl mx-auto flex flex-col md:flex-row gap-6 min-h-screen md:min-h-[80vh]">
 
-        {/* Main Content with Reduced Width */}
-        <div className="w-full md:w-[84%] flex flex-col p-6 bg-white rounded-3xl border border-purple-200">
-          <div className="bg-white rounded-2xl overflow-hidden p-8 mb-6 border border-gray-100">
+        {/* Main Content */}
+        <div className="w-full md:w-[84%] flex flex-col p-4 sm:p-6 bg-white rounded-3xl border border-purple-200 overflow-auto">
+          <div className="bg-white rounded-2xl overflow-hidden p-6 sm:p-8 mb-6 border border-gray-100">
             {loading && <p className="text-center">Loading...</p>}
 
             {error && (
@@ -71,7 +71,7 @@ const HighlightViewPage = () => {
 
             {highlight && (
               <>
-                <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 leading-tight font-serif">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 leading-tight font-serif">
                   {highlight.title}
                 </h1>
                 <div className="mb-8 rounded-lg overflow-hidden">
@@ -81,7 +81,7 @@ const HighlightViewPage = () => {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 font-roboto">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-8 font-roboto">
                   {highlight.description}
                 </p>
               </>
@@ -89,7 +89,7 @@ const HighlightViewPage = () => {
 
             {latestNews && (
               <>
-                <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 leading-tight font-serif">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 leading-tight font-serif">
                   {latestNews.title}
                 </h1>
                 <div className="mb-8 rounded-lg overflow-hidden">
@@ -99,26 +99,26 @@ const HighlightViewPage = () => {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8 font-roboto">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-8 font-roboto">
                   {latestNews.description}
                 </p>
               </>
             )}
           </div>
 
-          <div className="flex-1 overflow-y-auto bg-white rounded-2xl p-6 border border-gray-100">
+          <div className="flex-1 overflow-y-auto bg-white rounded-2xl p-4 sm:p-6 border border-gray-100">
             <LatestNews />
           </div>
         </div>
 
-        {/* Fixed Sidebar */}
-        <div className="w-full md:w-80 sticky top-0 h-screen overflow-y-auto p-6 bg-purple-50 border border-purple-200 rounded-3xl">
+        {/* Sidebar */}
+        <div className="w-full md:w-80 md:sticky md:top-0 md:h-screen p-4 sm:p-6 bg-purple-50 border border-purple-200 rounded-3xl">
           <RecentHeadlines />
         </div>
-
       </div>
     </div>
   );
 };
 
 export default HighlightViewPage;
+
