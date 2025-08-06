@@ -92,9 +92,6 @@ Custom backend middleware is used to protect routes:
 ---
 
 
-
----
-
 ## Admin Capabilities
 
 - **Comprehensive News Management**: Create, update, and delete news items for multiple categories such as headlines, live updates, special news, recent stories, and highlighted content. This gives editors full control over the news lifecycle from draft to publish.
