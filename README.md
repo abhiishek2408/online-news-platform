@@ -18,6 +18,8 @@ Designed to support **digital journalism**, this platform includes:
 - Poll and weather integration  
 - Role-based dashboards  
 - Modular, scalable architecture  
+- External news fetched via NewsAPI  
+- State-wise and Category-wise filtering via dropdowns  
 
 ---
 
@@ -28,14 +30,9 @@ Designed to support **digital journalism**, this platform includes:
 - [Detailed Feature Overview](#detailed-feature-overview)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
 - [Screenshots](#screenshots)
 - [Troubleshooting](#troubleshooting)
 - [Contributors](#contributors)
-- [License](#license)
 
 ---
 
@@ -44,7 +41,8 @@ Designed to support **digital journalism**, this platform includes:
 The Online News Platform provides a **scalable** and **modular** approach to delivering and managing digital content.  
 
 - The **Admin Panel** supports article creation, live updates, poll handling, and user moderation.  
-- The **User Interface** is optimized for real-time news consumption with categorized news, trending content, and an interactive experience.
+- The **User Interface** is optimized for real-time news consumption with categorized news, trending content, and an interactive experience.  
+- News is also fetched from **NewsAPI** to enhance variety and update freshness.
 
 ---
 
@@ -52,33 +50,52 @@ The Online News Platform provides a **scalable** and **modular** approach to del
 
 ### Authentication & Access Control
 
-- JWT-based login system  
-- Global auth state via `AuthContext`  
-- Role-based access: Admin vs Reader  
+- Secure JWT-based login and session management  
+- Global authentication state using `AuthContext`  
+- Access control based on roles – Admin and Reader  
+- Form validation and error handling on login and registration pages  
 
-### Admin Capabilities
+---
 
-- Create, edit, delete, and schedule news  
-- Manage:  
-  - Headlines  
-  - Live Updates  
-  - Highlights  
-  - Special & Recent News  
-  - Comments, Polls, Users  
-- Poll analytics & user moderation  
+## Admin Capabilities
 
-### User Dashboard
+- **Comprehensive News Management**: Create, update, and delete news items for multiple categories such as headlines, live updates, special news, recent stories, and highlighted content. This gives editors full control over the news lifecycle from draft to publish.
+  
+- **Poll Creation & Analytics**: Admins can create polls, define choices, track real-time voting stats, and analyze responses from users. Useful for gauging reader sentiment.
 
-- Live news feed via `LiveNewsStreaming.jsx`  
-- Explore top, latest, and recent news  
-- Weather updates and news recommendations  
-- Commenting, bookmarking, and polls  
-- Mobile-responsive layout  
+- **User Role Management**: View a list of registered users, update their roles (e.g., promote to moderator), or delete users violating terms. Admin can also disable accounts or reset credentials.
 
-### Component Highlights
+- **Comment Moderation**: View, approve, delete or flag comments. Helps maintain quality discussions and control spam or offensive content.
 
-- Admin: `AdminDashboard.jsx`, `ManageUsers.jsx`, `PollManager.jsx`  
-- User: `HomePage.jsx`, `TopSearchedNews.jsx`, `WeatherPage.jsx`, etc.
+- **Scheduled Publishing**: News articles can be drafted and scheduled for later publication using a time picker system. This enables editors to work ahead of time.
+
+- **Homepage Control Panel**: Dynamically decide what to display in Highlights, Headlines, or Featured sections by toggling article status in admin dashboard.
+
+- **Analytics & Dashboard Insights**: Admin Dashboard shows daily user activity, published news stats, poll engagement charts, and search trends.
+
+---
+
+## User Dashboard
+
+- **Live News Feed**: Users get real-time updates of breaking news using dynamic components that fetch and display news every few seconds.
+
+- **External News via NewsAPI**: News articles are also dynamically fetched from [NewsAPI](https://newsapi.org), enhancing the news coverage and keeping the platform up-to-date with global and national headlines.
+
+- **Category-wise and State-wise Filtering**: Users can select news based on **category** (sports, tech, politics, etc.) or **state/region** from a dropdown list. This ensures a personalized and localized reading experience.
+
+- **Intelligent News Recommendations**: Based on what users search, read, or bookmark, the system displays `TopRecommendedNews` or `TopSearchedNews`.
+
+- **Interactive Poll Participation**: Users can vote in live polls directly from the dashboard and view results once submitted.
+
+- **Bookmark & Reading History**: Logged-in users can bookmark news and revisit them later through a saved section.
+
+- **Review & Feedback System**: Readers can rate their experience and write detailed feedback using the `ReviewForm.jsx` component. Admins review this on the backend.
+
+- **Weather Widget Integration**: Location-based weather info is shown in a widget powered by OpenWeatherMap API through `WeatherPage.jsx`.
+
+- **Mobile-Responsive Interface**: Optimized using Tailwind CSS for devices of all sizes with accessible tab navigation, dark/light mode, and fast transitions.
+
+- **Search Suggestions & History**: Smart search input offers auto-suggestions based on trending keywords and previous searches.
 
 ---
 
@@ -87,6 +104,8 @@ The Online News Platform provides a **scalable** and **modular** approach to del
 - **Dual Dashboards**: Separate interfaces for admin and users  
 - **Modular News Types**: Headlines, Highlights, Live Updates, Recent News, etc.  
 - **Live Streaming**: Updates shown in real-time for breaking news  
+- **NewsAPI Integration**: External news fetched and displayed from NewsAPI  
+- **Dropdown Filters**: Select state or category to browse relevant news  
 - **Poll System**: Admins create polls, users vote, backend analytics track results  
 - **Filtering Options**: Sort and search by tag, category, and popularity  
 - **Engagement Tools**: Comments, threaded replies, moderation support  
@@ -130,103 +149,46 @@ online-news-platform/
 
 ## Tech Stack
 
-**Frontend**
-
-- React.js  
-- React Router  
-- Axios  
-- Tailwind / Bootstrap  
-
-**Backend**
-
-- Node.js  
-- Express.js  
-- MongoDB  
-- Mongoose  
-- JWT  
-
-**Others**
-
-- Cloudinary / Multer (for image upload)  
-- OpenWeatherMap API (for weather integration)  
-- Git & GitHub  
+### 🖥️ Frontend
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)  
+[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com)  
+[![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com)  
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)  
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
 
 ---
 
-## Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/online-news-platform.git
-   ```
-
-2. **Backend Setup**
-   ```bash
-   cd backend
-   npm install
-   npm run dev
-   ```
-
-3. **Frontend Setup**
-   ```bash
-   cd frontend
-   npm install
-   npm start
-   ```
+### 🔧 Backend
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)  
+[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com)  
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com)  
+[![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)](https://mongoosejs.com)  
+[![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io)
 
 ---
 
-## Configuration
-
-- Rename `.env.example` to `.env` in the `backend/` folder  
-- Add the following:
-
-```
-MONGO_URI=your_mongo_connection_string
-JWT_SECRET=your_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
-
----
-
-## Usage
-
-- Admin can manage content through the `/admin` route  
-- Users can view and interact with news via `/home`  
-- Dynamic routing handles categories, highlights, etc.
-
----
-
-## API Documentation
-
-Available in `/backend/routes/`:
-
-- `authRoutes.js`  
-- `pollRoutes.js`  
-- `manageUser.js`  
-- `apiNews.js`  
-- `commentRoutes.js`  
-- `subscribe.js`  
-- `weather.js`  
+### ⚙️ Others
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com)  
+[![Multer](https://img.shields.io/badge/Multer-F02E65?style=for-the-badge)](https://github.com/expressjs/multer)  
+[![OpenWeather](https://img.shields.io/badge/OpenWeather-FFA500?style=for-the-badge)](https://openweathermap.org)  
+[![NewsAPI](https://img.shields.io/badge/NewsAPI-000000?style=for-the-badge&logo=newsapi&logoColor=white)](https://newsapi.org)  
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com)  
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com)
 
 ---
 
 ## Screenshots
 
-Here are some preview screenshots of the project interface:
-
-### Admin Dashboard
+### Admin Dashboard  
 ![Admin Dashboard](https://via.placeholder.com/800x400.png?text=Admin+Dashboard)
 
-### User Homepage
+### User Homepage  
 ![User Homepage](https://via.placeholder.com/800x400.png?text=User+Homepage)
 
-### Live News Streaming
+### Live News Streaming  
 ![Live News Streaming](https://via.placeholder.com/800x400.png?text=Live+News+Streaming)
 
-### Poll Management
+### Poll Management  
 ![Poll Management](https://via.placeholder.com/800x400.png?text=Poll+Manager)
 
 ---
@@ -243,13 +205,6 @@ Here are some preview screenshots of the project interface:
 ## Contributors
 
 - **Abhishek Yadav** – Full Stack Developer  
-- [Other contributors, if any]
 
----
-
-## License
-
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for details.
 
 ---
