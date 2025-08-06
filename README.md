@@ -116,3 +116,99 @@ This platform is packed with modern and scalable news features:
 
 ## Project Structure
 
+
+online-news-platform/
+├── backend/
+│ ├── Models/
+│ │ ├── Comment.js
+│ │ ├── Headline.js
+│ │ ├── Highlight.js
+│ │ ├── LatestHeadlines.js
+│ │ ├── LiveUpdate.js
+│ │ ├── Poll.js
+│ │ ├── RecentNews.js
+│ │ ├── SpecialNews.js
+│ │ ├── Subscriber.js
+│ │ ├── User.js
+│ │ └── VideoNews.js
+│ ├── middleware/
+│ │ └── authMiddleware.js
+│ ├── routes/
+│ │ ├── adminRoutes.js
+│ │ ├── api.js
+│ │ ├── apiNews.js
+│ │ ├── authRoutes.js
+│ │ ├── commentRoutes.js
+│ │ ├── manageComment.js
+│ │ ├── manageHeadline.js
+│ │ ├── manageHighlight.js
+│ │ ├── manageLatestHeadline.js
+│ │ ├── manageLiveUpdate.js
+│ │ ├── managePoll.js
+│ │ ├── manageRecentHeadline.js
+│ │ ├── manageSpecialNews.js
+│ │ ├── manageUser.js
+│ │ ├── pollRoutes.js
+│ │ ├── specialNewsRoutes.js
+│ │ ├── subscribe.js
+│ │ └── weather.js
+│ ├── images/
+│ ├── public/
+│ ├── seeders/
+│ ├── .env
+│ ├── server.js
+│ └── package.json
+│
+├── frontend/
+│ └── src/
+│ ├── Auth/
+│ │ ├── AuthContext.jsx
+│ │ ├── Login.jsx
+│ │ └── Register.jsx
+│ ├── components/
+│ │ ├── admin/
+│ │ │ ├── AdminDashboard.jsx
+│ │ │ ├── AdminNavbar.jsx
+│ │ │ ├── Comment.jsx
+│ │ │ ├── Headline.jsx
+│ │ │ ├── Highlight.jsx
+│ │ │ ├── Homepage.jsx
+│ │ │ ├── LatestHeadlines.jsx
+│ │ │ ├── LiveUpdates.jsx
+│ │ │ ├── ManageUsers.jsx
+│ │ │ ├── PollManager.jsx
+│ │ │ ├── RecentNews.jsx
+│ │ │ └── SpecialNews.jsx
+│ │ └── user/
+│ │ ├── AllHighlightsPage.jsx
+│ │ ├── AllLatestNewsPage.jsx
+│ │ ├── CategoryNewsPage.jsx
+│ │ ├── Footer.jsx
+│ │ ├── HighlightViewPage.jsx
+│ │ ├── HomePage.jsx
+│ │ ├── LatestNewsViewPage.jsx
+│ │ ├── LiveNewsStreaming.jsx
+│ │ ├── Navbar.css
+│ │ ├── Navbar.jsx
+│ │ ├── Poll.jsx
+│ │ ├── ReviewForm.jsx
+│ │ ├── SubscriptionPage.jsx
+│ │ ├── TopHighlight.jsx
+│ │ ├── TopLatestNews.jsx
+│ │ ├── TopRecentHeadlines.jsx
+│ │ ├── TopRecommendedNews.jsx
+│ │ ├── TopSearchedNews.jsx
+│ │ ├── UserDashboard.jsx
+│ │ └── WeatherPage.jsx
+│ ├── App.js
+│ ├── App.css
+│ ├── index.js
+│ ├── index.css
+│ ├── logo.svg
+│ └── setupTests.js
+├── README.md
+└── package-lock.json
+
+
+
+
