@@ -31,7 +31,6 @@ Designed to support **digital journalism**, this platform includes:
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
 - [Screenshots](#screenshots)
-- [Troubleshooting](#troubleshooting)
 - [Contributors](#contributors)
 
 ---
@@ -150,62 +149,90 @@ online-news-platform/
 ## Tech Stack
 
 ### 🖥️ Frontend
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)  
-[![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)](https://reactrouter.com)  
-[![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com)  
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)  
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+
+<p align="center">
+  <a href="https://reactjs.org">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  </a>
+  <a href="https://reactrouter.com">
+    <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React Router">
+  </a>
+  <a href="https://axios-http.com">
+    <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white" alt="Axios">
+  </a>
+  <a href="https://tailwindcss.com">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  </a>
+  <a href="https://getbootstrap.com">
+    <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+  </a>
+</p>
 
 ---
 
 ### 🔧 Backend
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)  
-[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com)  
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com)  
-[![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)](https://mongoosejs.com)  
-[![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io)
+
+<p align="center">
+  <a href="https://nodejs.org">
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+  </a>
+  <a href="https://expressjs.com">
+    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js">
+  </a>
+  <a href="https://www.mongodb.com">
+    <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+  </a>
+  <a href="https://mongoosejs.com">
+    <img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" alt="Mongoose">
+  </a>
+  <a href="https://jwt.io">
+    <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT">
+  </a>
+</p>
 
 ---
 
 ### ⚙️ Others
-[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com)  
-[![Multer](https://img.shields.io/badge/Multer-F02E65?style=for-the-badge)](https://github.com/expressjs/multer)  
-[![OpenWeather](https://img.shields.io/badge/OpenWeather-FFA500?style=for-the-badge)](https://openweathermap.org)  
-[![NewsAPI](https://img.shields.io/badge/NewsAPI-000000?style=for-the-badge&logo=newsapi&logoColor=white)](https://newsapi.org)  
-[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com)  
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com)
+
+<p align="center">
+  <a href="https://cloudinary.com"><img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" alt="Cloudinary"></a>
+  <a href="https://github.com/expressjs/multer"><img src="https://img.shields.io/badge/Multer-F02E65?style=for-the-badge" alt="Multer"></a>
+  <a href="https://openweathermap.org"><img src="https://img.shields.io/badge/OpenWeather-FFA500?style=for-the-badge" alt="OpenWeather"></a>
+  <a href="https://newsapi.org"><img src="https://img.shields.io/badge/NewsAPI-000000?style=for-the-badge&logo=newsapi&logoColor=white" alt="NewsAPI"></a>
+  <a href="https://git-scm.com"><img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"></a>
+  <a href="https://github.com"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+</p>
 
 ---
 
 ## Screenshots
 
-### Admin Dashboard  
-![Admin Dashboard](https://via.placeholder.com/800x400.png?text=Admin+Dashboard)
+### Admin Dashboard
 
-### User Homepage  
-![Homepage](frontend/public/Homepage1.png)
+<p align="center">
+  <img src="frontend/public/Admin1.png" alt="Admin1" width="200"/>
+  <img src="frontend/public/Admin2.png" alt="Admin2" width="200"/>
+  <img src="frontend/public/Admin3.png" alt="Admin3" width="200"/>
+  <img src="frontend/public/Admin4.png" alt="Admin4" width="200"/>
+</p>
 
-### Live News Streaming  
-![Live News Streaming](https://via.placeholder.com/800x400.png?text=Live+News+Streaming)
 
-### Poll Management  
-![Poll Management](https://via.placeholder.com/800x400.png?text=Poll+Manager)
+### User Dashboard
 
----
-
-## Troubleshooting
-
-- **MongoDB not connecting?** → Check `.env` and Mongo URI  
-- **Image upload failing?** → Ensure Cloudinary credentials are valid  
-- **CORS issues?** → Set headers correctly in Express  
-- **React errors?** → Open console to debug unhandled exceptions  
+<p align="center">
+  <img src="frontend/public/Homepage1.png" alt="User Homepage" width="200"/>
+  <img src="frontend/public/Livenews.png" alt="Live News" width="200"/>
+  <img src="frontend/public/Poll.png" alt="Poll Management" width="200"/>
+  <img src="frontend/public/Weather.png" alt="Weather" width="200"/>
+  <img src="frontend/public/Review.png" alt="Review" width="200"/>
+  <img src="frontend/public/ApiNews.png" alt="API News" width="200"/>
+</p>
 
 ---
 
 ## Contributors
 
 - **Abhishek Yadav** – Full Stack Developer  
-
 
 ---
 
