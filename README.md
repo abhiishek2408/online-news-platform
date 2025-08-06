@@ -47,12 +47,51 @@ The Online News Platform provides a **scalable** and **modular** approach to del
 
 ## Features
 
-### Authentication & Access Control
+### 🔐 Authentication & Access Control
 
-- Secure JWT-based login and session management  
-- Global authentication state using `AuthContext`  
-- Access control based on roles – Admin and Reader  
-- Form validation and error handling on login and registration pages  
+This platform includes a fully functional authentication flow built using **JWT**, **middleware**, and **role-based routing**.
+
+### 🔑 Key Features
+
+#### 🧾 Login/Register Pages
+Users and admins access the system through separate forms. Both pages include:
+- Proper field validation
+- Error and success handling
+- Clean responsive styling
+
+#### 🔐 JWT-Based Authentication
+- Upon login, a signed token is issued using **JSON Web Tokens**
+- This token is stored securely in `localStorage`
+- All protected API routes use this token for authentication
+
+#### 🔒 Secure Password Hashing
+- User passwords are hashed using `bcrypt.js`
+- Ensures strong encryption even in the event of a database breach
+
+#### 🚦 Role-Based Routing
+After login, the system checks the user’s role and redirects accordingly:
+- `/admin/dashboard` → for Admin users
+- `/user/dashboard` → for regular Users
+
+#### 🧰 Protected Routes with Middleware
+Custom backend middleware is used to protect routes:
+- `authMiddleware.js` – Verifies JWT token and extracts user data
+- `adminMiddleware.js` – Ensures only admins access admin routes
+
+#### 🌐 Global AuthContext
+- Uses **React Context API** (`AuthContext.jsx`)
+- Manages global session state: token, role, and user info
+- Accessible from any component for conditionally rendering based on auth state
+
+#### ⏳ Token Expiry and Auto Logout
+- Each session is verified on page load or route access
+- If the token is invalid or expired:
+  - The user is logged out
+  - Redirected to `/login` automatically
+
+---
+
+
 
 ---
 
@@ -207,26 +246,33 @@ online-news-platform/
 
 ## Screenshots
 
+### Login/Register Page
+
+<p align="center">
+  <img src="frontend/public/Login.png" alt="Login" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Register.png" alt="Register" width="200" style="border:1px solid #ccc; margin:5px;" />
+</p>
+
 ### Admin Dashboard
 
 <p align="center">
-  <img src="frontend/public/Admin1.png" alt="Admin1" width="200"/>
-  <img src="frontend/public/Admin2.png" alt="Admin2" width="200"/>
-  <img src="frontend/public/Admin3.png" alt="Admin3" width="200"/>
-  <img src="frontend/public/Admin4.png" alt="Admin4" width="200"/>
+  <img src="frontend/public/Admin1.png" alt="Admin1" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Admin2.png" alt="Admin2" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Admin3.png" alt="Admin3" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Admin4.png" alt="Admin4" width="200" style="border:1px solid #ccc; margin:5px;" />
 </p>
-
 
 ### User Dashboard
 
 <p align="center">
-  <img src="frontend/public/Homepage1.png" alt="User Homepage" width="200"/>
-  <img src="frontend/public/Livenews.png" alt="Live News" width="200"/>
-  <img src="frontend/public/Poll.png" alt="Poll Management" width="200"/>
-  <img src="frontend/public/Weather.png" alt="Weather" width="200"/>
-  <img src="frontend/public/Review.png" alt="Review" width="200"/>
-  <img src="frontend/public/ApiNews.png" alt="API News" width="200"/>
+  <img src="frontend/public/Homepage1.png" alt="User Homepage" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Livenews.png" alt="Live News" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Poll.png" alt="Poll Management" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Weather.png" alt="Weather" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/Review.png" alt="Review" width="200" style="border:1px solid #ccc; margin:5px;" />
+  <img src="frontend/public/ApiNews.png" alt="API News" width="200" style="border:1px solid #ccc; margin:5px;" />
 </p>
+
 
 ---
 
