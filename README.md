@@ -183,7 +183,7 @@ online-news-platform/
 ![Admin Dashboard](https://via.placeholder.com/800x400.png?text=Admin+Dashboard)
 
 ### User Homepage  
-![User Homepage](https://via.placeholder.com/800x400.png?text=User+Homepage)
+!["frontend/public/Homepage1.png")
 
 ### Live News Streaming  
 ![Live News Streaming](https://via.placeholder.com/800x400.png?text=Live+News+Streaming)
