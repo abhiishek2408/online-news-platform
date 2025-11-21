@@ -82,6 +82,18 @@ router.get('/headlines', async (req, res) => {
   }
 });
 
+router.get('/headline/:id', async (req, res) => {
+  try {
+    const headline = await Headline.findById(req.params.id);
+    if (!headline) {
+      return res.status(404).json({ message: 'Headline not found' });
+    }
+    res.json(headline);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching headline', error });
+  }
+});
+
 router.post('/headlines', async (req, res) => {
   try {
     const headline = new Headline(req.body);
