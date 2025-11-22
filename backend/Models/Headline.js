@@ -15,7 +15,8 @@ const HeadlineSchema = new mongoose.Schema({
   published_at: { type: Date },
   updated_at: { type: Date, default: Date.now },
   country: { type: String, required: true },
-  state: { type: String }
+  state: { type: String },
+  likes: { type: Number, default: 0 }
 });
 
 HeadlineSchema.pre('save', function (next) {

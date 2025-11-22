@@ -28,4 +28,20 @@ router.delete('/:id', async (req, res) => {
   res.json({ message: 'Deleted successfully' });
 });
 
+
+// Like endpoint
+router.post('/:id/like', async (req, res) => {
+  try {
+    const headline = await Headline.findById(req.params.id);
+    if (!headline) {
+      return res.status(404).json({ message: 'Headline not found' });
+    }
+    headline.likes = (headline.likes || 0) + 1;
+    await headline.save();
+    res.json({ likes: headline.likes });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating likes', error: error.message });
+  }
+});
+
 export default router;
