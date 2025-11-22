@@ -17,7 +17,10 @@ const LatestHeadlinesSchema = new mongoose.Schema({
 
   // Location support
   country: { type: String, required: true },
-  state: { type: String }
+  state: { type: String },
+
+  // Like support
+  likes: { type: Number, default: 0 }
 });
 
 // Auto-update `updated_at` on save
