@@ -1,17 +1,4 @@
-// POST like a headline by ID
-router.post('/:id/like', async (req, res) => {
-  try {
-    const headline = await LatestHeadlines.findById(req.params.id);
-    if (!headline) {
-      return res.status(404).json({ error: 'Headline not found' });
-    }
-    headline.likes = (headline.likes || 0) + 1;
-    await headline.save();
-    res.json({ likes: headline.likes });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+
 // routes/manageLatestHeadline.js
 import express from 'express';
 import LatestHeadlines from '../Models/LatestHeadlines.js';
@@ -58,6 +45,22 @@ router.delete('/:id', async (req, res) => {
   try {
     await LatestHeadlines.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
+// POST like a headline by ID
+router.post('/:id/like', async (req, res) => {
+  try {
+    const headline = await LatestHeadlines.findById(req.params.id);
+    if (!headline) {
+      return res.status(404).json({ error: 'Headline not found' });
+    }
+    headline.likes = (headline.likes || 0) + 1;
+    await headline.save();
+    res.json({ likes: headline.likes });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
