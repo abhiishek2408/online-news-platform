@@ -44,6 +44,7 @@ const Footer = () => {
               <li><Link to="/report" className="hover:text-white transition">Report a Problem</Link></li>
               <li><Link to="/chat" className="hover:text-white transition">Live Chat</Link></li>
               <li><Link to="/forum" className="hover:text-white transition">Community Forum</Link></li>
+              <li><Link to="/user/dashboard/review" className="hover:text-white transition">Review</Link></li>
             </ul>
           </div>
 

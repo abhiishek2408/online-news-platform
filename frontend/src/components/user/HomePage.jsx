@@ -39,7 +39,7 @@ const HomePage = () => {
       {/* Full-width sections */}
       <LiveNewsStreaming />
       <RecommendedNewsSection />
-      <ReviewForm />
+
       <TopSearchedNews />
     </div>
   );

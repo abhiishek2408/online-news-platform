@@ -113,6 +113,8 @@ const Navbar = () => {
             </div>
           </li>
 
+          <li><Link to="/user/dashboard/review" className="hover:text-purple-400">Review</Link></li>
+
           <li>
             <Link to="/user/dashboard/subscriptionpage" className="bg-purple-600 text-white py-1.5 px-4 rounded-md hover:bg-purple-700 transition">
               Subscribe
@@ -200,6 +202,8 @@ const Navbar = () => {
                 />
               </div>
             </li>
+
+            <li><Link to="/user/dashboard/review" className="hover:text-purple-400">Review</Link></li>
 
             <li>
               <Link to="/user/dashboard/subscriptionpage" className="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition">

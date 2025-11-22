@@ -11,11 +11,13 @@ const UserDashboard = lazy(() => import('./components/user/UserDashboard'));
 const HomePage = lazy(() => import('./components/user/HomePage'));
 const HighlightViewPage = lazy(() => import('./components/user/HighlightViewPage'));
 const LatestNewsViewPage = lazy(() => import('./components/user/LatestNewsViewPage'));
+const HeadlineViewPage = lazy(() => import('./components/user/HeadlineViewPage'));
 const AllHighlightsPage = lazy(() => import('./components/user/AllHighlightsPage'));
 const AllLatestNewsPage = lazy(() => import('./components/user/AllLatestNewsPage'));
 const WeatherPage = lazy(() => import('./components/user/WeatherPage'));
 const SubscriptionPage = lazy(() => import('./components/user/SubscriptionPage'));
 const CategoryNewsPage = lazy(() => import('./components/user/CategoryNewsPage'));
+const ReviewForm = lazy(() => import('./components/user/ReviewForm'));
 
 const AdminDashboard = lazy(() => import('./components/admin/AdminDashboard'));
 const HomepageAdmin = lazy(() => import('./components/admin/Homepage'));
@@ -47,11 +49,13 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="articleviewpage" element={<HighlightViewPage />} />
                 <Route path="latestnewsview" element={<LatestNewsViewPage />} />
+                <Route path="headlineview" element={<HeadlineViewPage />} />
                 <Route path="allhighlightnews" element={<AllHighlightsPage />} />
                 <Route path="all-latestnews" element={<AllLatestNewsPage />} />
                 <Route path="weatherModal" element={<WeatherPage />} />
                 <Route path="categorynewspage" element={<CategoryNewsPage />} />
                 <Route path="subscriptionpage" element={<SubscriptionPage />} />
+                <Route path="review" element={<ReviewForm />} />
               </Route>
 
               <Route path="/admin/dashboard" element={<AdminDashboard />}>
