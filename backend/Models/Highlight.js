@@ -18,7 +18,8 @@ const HighlightSchema = new mongoose.Schema({
 
   // ➕ New fields
   country: { type: String, required: true },
-  state: { type: String }
+  state: { type: String },
+  likes: { type: Number, default: 0 }
 });
 
 // Auto-update `updated_at` on every save
