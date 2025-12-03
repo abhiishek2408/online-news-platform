@@ -23,28 +23,21 @@ const Footer = () => {
             <p>Address: 123 Street, City, Country</p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - Only essential */}
           <div className="min-w-[200px] flex-1 text-left sm:text-center">
             <h3 className="text-base font-semibold text-white mb-1">Quick Links</h3>
             <ul className="space-y-1 text-gray-300">
               <li><Link to="/" className="hover:text-white transition">Home</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
-              <li><Link to="/news" className="hover:text-white transition">News</Link></li>
-              <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link to="/careers" className="hover:text-white transition">Careers</Link></li>
+              <li><Link to="/user/dashboard/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link to="/user/dashboard/review" className="hover:text-white transition">Review</Link></li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Support - Only Help Center */}
           <div className="min-w-[200px] flex-1 text-left sm:text-center">
             <h3 className="text-base font-semibold text-white mb-1">Support</h3>
             <ul className="space-y-1 text-gray-300">
-              <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
-              <li><Link to="/faqs" className="hover:text-white transition">FAQs</Link></li>
-              <li><Link to="/report" className="hover:text-white transition">Report a Problem</Link></li>
-              <li><Link to="/chat" className="hover:text-white transition">Live Chat</Link></li>
-              <li><Link to="/forum" className="hover:text-white transition">Community Forum</Link></li>
-              <li><Link to="/user/dashboard/review" className="hover:text-white transition">Review</Link></li>
+              <li><Link to="/user/dashboard/help" className="hover:text-white transition">Help Center</Link></li>
             </ul>
           </div>
 
@@ -52,27 +45,19 @@ const Footer = () => {
           <div className="min-w-[200px] flex-1 text-left sm:text-center">
             <h3 className="text-base font-semibold text-white mb-1">Legal</h3>
             <ul className="space-y-1 text-gray-300">
-              <li><Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" className="hover:text-white transition">Cookie Policy</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-white transition">Disclaimer</Link></li>
+              <li><Link to="/user/dashboard/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
+              <li><Link to="/user/dashboard/terms" className="hover:text-white transition">Terms of Service</Link></li>
+              <li><Link to="/user/dashboard/cookie-policy" className="hover:text-white transition">Cookie Policy</Link></li>
+              <li><Link to="/user/dashboard/disclaimer" className="hover:text-white transition">Disclaimer</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center flex-wrap space-x-6 mb-6 text-xl text-gray-300">
-          <Link to="#" className="hover:text-purple-500 transition"><i className="fab fa-facebook"></i></Link>
-          <Link to="#" className="hover:text-pink-400 transition"><i className="fab fa-instagram"></i></Link>
-          <Link to="#" className="hover:text-sky-400 transition"><i className="fab fa-twitter"></i></Link>
-          <Link to="#" className="hover:text-red-600 transition"><i className="fab fa-youtube"></i></Link>
-          <Link to="#" className="hover:text-green-400 transition"><i className="fab fa-whatsapp"></i></Link>
-        </div>
+        {/* Social Links - Removed unnecessary */}
 
-        {/* Footer Bottom */}
+        {/* Footer Bottom - Only copyright */}
         <div className="text-center text-xs text-gray-400 font-light space-y-1">
-          <p className="tracking-wide">HOME | BLOG | FORUMS | ABOUT US | SUPPORT | POLICY | PRIVACY</p>
-          <p>© 2025 NewsAlpha.com | Passionately crafted with by NewsAlphaTeam. All rights reserved.</p>
+          <p>© 2025 NewsAlpha.com | Passionately crafted by NewsAlphaTeam. All rights reserved.</p>
         </div>
       </div>
     </footer>

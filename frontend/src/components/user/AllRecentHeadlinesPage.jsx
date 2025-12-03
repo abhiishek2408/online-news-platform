@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { ThemeContext } from './Context/ThemeContext';
 import RecentHeadlines from './TopRecentHeadlines';
 
-const AllHighlightsPage = () => {
-  const [highlights, setHighlights] = useState([]);
+const AllRecentHeadlinesPage = () => {
+  const [headlines, setHeadlines] = useState([]);
   const { darkMode } = React.useContext(ThemeContext);
 
   useEffect(() => {
-    const loadAllHighlights = async () => {
+    const loadAllHeadlines = async () => {
       try {
-        const res = await fetch("https://online-news-platform-backend.onrender.com/api/all-highlights");
+        const res = await fetch("https://online-news-platform-backend.onrender.com/api/headlines");
         const data = await res.json();
-        setHighlights(data);
+        setHeadlines(data);
       } catch (err) {
-        console.error("Error loading all highlights:", err);
+        console.error("Error loading all headlines:", err);
       }
     };
-    loadAllHighlights();
+    loadAllHeadlines();
   }, []);
 
   return (
@@ -25,30 +25,30 @@ const AllHighlightsPage = () => {
         {/* Main content */}
         <div className={`w-full md:w-[72%] flex flex-col p-8 rounded-3xl border shadow-xl transition-colors duration-300 ${darkMode ? 'bg-gray-900 border-purple-800' : 'bg-white border-purple-100'}` }>
           <h2 className={`text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-600 to-blue-600 mb-6 flex items-center gap-2 tracking-tight drop-shadow-lg ${darkMode ? 'drop-shadow-xl' : ''}` }>
-            <i className="fas fa-bolt text-purple-500"></i> All Highlight News
+            <i className="fas fa-newspaper text-purple-500"></i> All Recent Headlines
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {highlights.length === 0 ? (
-              <p className={`text-sm col-span-full ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>No highlights found.</p>
+            {headlines.length === 0 ? (
+              <p className={`text-sm col-span-full ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>No headlines found.</p>
             ) : (
-              highlights.map((highlight) => (
+              headlines.map((headline) => (
                 <a
-                  key={highlight._id}
-                  href={`/user/dashboard/articleviewpage?id=${highlight._id}`}
+                  key={headline._id}
+                  href={`/user/dashboard/headlineview?id=${headline._id}`}
                   className={`group rounded-2xl shadow-md border transition-all duration-200 flex flex-col overflow-hidden hover:-translate-y-1 hover:shadow-2xl ${darkMode ? 'bg-gray-800 border-purple-800' : 'bg-white border-gray-100'}`}
                 >
                   <div className="h-48 overflow-hidden relative">
                     <img
-                      src={highlight.image}
-                      alt={highlight.title}
+                      src={headline.image}
+                      alt={headline.headline}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ animation: 'fadeIn 1s forwards' }}
                     />
-                    <span className="absolute top-2 left-2 bg-purple-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow">Highlight</span>
+                    <span className="absolute top-2 left-2 bg-purple-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold shadow">Recent</span>
                   </div>
                   <div className="p-4 flex-1 flex flex-col">
-                    <h3 className={`text-lg font-bold mb-1 group-hover:text-purple-700 transition-colors line-clamp-2 ${darkMode ? 'text-white drop-shadow-lg' : 'text-gray-900'}`}>{highlight.title}</h3>
-                    <p className={`text-sm mb-2 line-clamp-3 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{highlight.description}</p>
+                    <h3 className={`text-lg font-bold mb-1 group-hover:text-purple-700 transition-colors line-clamp-2 ${darkMode ? 'text-white drop-shadow-lg' : 'text-gray-900'}`}>{headline.headline}</h3>
+                    <p className={`text-sm mb-2 line-clamp-3 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{headline.description}</p>
                   </div>
                 </a>
               ))
@@ -89,4 +89,4 @@ const AllHighlightsPage = () => {
   );
 };
 
-export default AllHighlightsPage;
+export default AllRecentHeadlinesPage;

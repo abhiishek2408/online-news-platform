@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import RecentHeadlines from './TopRecentHeadlines';
 
-function HeadlineViewPage() {
+function RecentHeadlineViewPage() {
   const [searchParams] = useSearchParams();
   const headlineId = searchParams.get('id');
 
@@ -51,7 +51,7 @@ function HeadlineViewPage() {
   const handleLike = async () => {
     if (isLiked || !headline) return;
     try {
-      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/headlines/${headline._id}/like`, {
+      const res = await fetch(`https://online-news-platform-backend.onrender.com/api/headline/${headline._id}/like`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -291,4 +291,4 @@ function HeadlineViewPage() {
   );
 }
 
-export default HeadlineViewPage;
+export default RecentHeadlineViewPage;
